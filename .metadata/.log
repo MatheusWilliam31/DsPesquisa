@@ -319,3 +319,15 @@ java.util.concurrent.TimeoutException
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-09-16 23:48:09.611
 !MESSAGE executing callback sts4.classpath.EnrrMCkj SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-09-17 00:12:32.219
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.EnrrMCkj
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-09-17 00:12:32.220
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.EnrrMCkj
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-09-17 00:12:32.220
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-09-17 00:12:32.220
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.EnrrMCkj => OK
