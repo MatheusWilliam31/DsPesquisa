@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './styles.css';
 import { RecordsResponse } from './types';
-import { formatDate} from './helpers';
+import { formatDate } from './helpers';
 import Pagination from './Pagination';
-import{ Link } from 'react-router-dom';
+import Filters from '../../components/Filters';
 
 const BASE_URL = 'http://localhost:8080'
 
 const Records = () => {
     const [recordsRespose, setRecordsReponse] = useState<RecordsResponse>();
-    const [activePage, setActivePage] = useState (0);
+    const [activePage, setActivePage] = useState(0);
 
     useEffect(() => {
         axios.get(`${BASE_URL}/records?linesPerPage=12&page=${activePage}`)
@@ -23,13 +23,7 @@ const Records = () => {
 
     return (
         <div className="page-container">
-            <div className="filters-container records-actions">
-                <Link to="/charts"> 
-                <button className="action-filters">
-                    VER GRÁFICOS
-                </button>
-                </Link>
-            </div>
+            <Filters link= "/charts" linkText= "VER GRÁFICOS" />
             <table className="records-table" cellPadding="0" cellSpacing="0">
                 <thead>
                     <tr>
@@ -43,23 +37,23 @@ const Records = () => {
                 </thead>
                 <tbody>
                     {recordsRespose?.content.map(record => (
-                        <tr key= {record.id}>
+                        <tr key={record.id}>
                             <td>{formatDate(record.moment)}</td>
                             <td>{record.name}</td>
                             <td>{record.age}</td>
                             <td className="text-secondary">{record.gamePlatform}</td>
                             <td>{record.genreName}</td>
-                            <td className= "text-primary">{record.gameTitle}</td>
+                            <td className="text-primary">{record.gameTitle}</td>
                         </tr>
                     ))}
                 </tbody>
             </table>
             <Pagination activePage={activePage}
-            goToPage={handlePageChange}
-            totalPages={recordsRespose?.totalPages}
+                goToPage={handlePageChange}
+                totalPages={recordsRespose?.totalPages}
 
             />
-            
+
         </div>
     );
 }
